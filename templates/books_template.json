@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "required": [
+    "body",
+    "status"
+  ],
+  "properties": {
+    "body": {
+      "type": "object",
+      "required": [
+        "books"
+      ],
+      "properties": {
+        "books": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "amount",
+              "author",
+              "id",
+              "name"
+            ],
+            "properties": {
+              "amount": {
+                "type": "integer"
+              },
+              "author": {
+                "type": "string",
+                "pattern": "[A-Z][a-z]* [A-Z][a-z]*"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string",
+                "pattern": "^[A-Z1-9]"
+              }
+            }
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "integer"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "required": [
+    "body",
+    "status"
+  ],
+  "properties": {
+    "body": {
+      "type": "object",
+      "required": [
+        "users"
+      ],
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "name",
+              "taken_books_ids"
+            ],
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string",
+                "pattern": "[A-Z][a-z]* [A-Z][a-z]*"
+              },
+              "taken_books_ids": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "integer"
+    }
+  }
+}
