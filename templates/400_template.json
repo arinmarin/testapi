@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "required": [
+    "body",
+    "status"
+  ],
+  "properties": {
+    "body": {
+      "type": "object",
+      "required": [
+        "additional_errors"
+      ],
+      "properties": {
+        "additional_errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "integer"
+    }
+  }
+}

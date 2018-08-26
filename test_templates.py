@@ -3,6 +3,7 @@ import sys
 import jsonschema
 import pytest
 import requests
+from tests_data import *
 
 
 def is_validate(json_obj, schema):
@@ -14,15 +15,20 @@ def is_validate(json_obj, schema):
         return False
 
 
-@pytest.mark.parametrize("url,template", [
-    ("http://yoshilyosha.pythonanywhere.com/api/v1/books", "templates/books_template.json"),
-    ("http://yoshilyosha.pythonanywhere.com/api/v1/users", "templates/users_template.json"),
-])
-def test_template_valid(url, template):
+@pytest.mark.parametrize("method, url, template, map_of_argument, header, my_json, status", param)
+def test_template_valid(method, url, template, map_of_argument, header, my_json, status):
+    url = baseUrl + url
+    sys.stdout.write("Method = {}, Url = {}, Template = {}, Parameters = {}, Headers = {}, Json = {}, Status = {}\n"\
+                     .format(method, url, template, map_of_argument, header, my_json, status))
+    template = "templates/" + template
     with open(template, 'r') as f:
         schema_data = f.read()
     schema = json.loads(schema_data)
 
-    json_obj = json.loads(requests.get(url).text)
+    request = requests.request(method, url, params=map_of_argument, headers=header, json=my_json)
+    text = request.text
+    sys.stdout.write(text + '\n')
+    assert request.status_code == status
 
-    assert is_validate(json_obj, schema), "Schema {} is not valid".format(template)
+    json_obj = json.loads(text)
+    assert is_validate(json_obj, schema), "Schema {} is not valid\n".format(template)
