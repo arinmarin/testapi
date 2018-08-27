@@ -18,7 +18,7 @@
         },
         "name": {
           "type": "string",
-          "pattern": "[A-Z][a-z]* [A-Z][a-z]*"
+          "pattern": "^[A-Z][a-z/./-]* [A-Z][a-z/./-]*"
         },
         "taken_books_ids": {
           "type": "array"
