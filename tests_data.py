@@ -30,18 +30,35 @@ param = (
 )
 
 """
-Tuple of tests for adding to db
+Tuple of tests for adding books into db
 
-(method, endpoint, map_of_parameters, headers, json, status)
+(method, map_of_parameters, headers, json)
 
 """
 add_book_param = (
-    ("get", {"book_name": "The Little Prince", "book_author": "Antoine de Saint-Exupery", "amount": 1}, None, None, 200),
-    ("get", {"book_name": "The Holy Bible", "book_author": "", "amount": 2}, None, None, 200),
-    ("post", {"book_name": "The Little Prince", "book_author": "Antoine de Saint-Exupery", "amount": 3}, None, None, 200),
-    ("get", None, {"content-type": "application/json"}, {"book_name": "The Little Prince", "book_author": "Antoine de Saint-Exupery", "amount": 2}, 200),
-    ("post", None, {"content-type": "application/json"}, {"book_name": "The Little Prince", "book_author": "Antoine de Saint-Exupery", "amount": 6}, 200),
-    ("post", {"book_name": "The Hunger Games", "book_author": "Suzanne Collins", "amount": 2}, {"content-type": "application/json"}, {"book_name": "The Little Prince", "book_author": "Antoine de Saint-Exupery", "amount": 2}, 200),
-    ("get", {"book_name": "The Hunger Games", "book_author": "Suzanne Collins", "amount": 2}, {"content-type": "application/json"}, {"book_name": "The Little Prince", "book_author": "Antoine de Saint-Exupery", "amount": 2}, 200),
-    ("get", {"book_name": "", "book_author": "Suzanne Collins", "amount": 0}, None, None, 200),
+    ("get", {"book_name": "The Little Prince", "book_author": "Antoine de Saint-Exupery", "amount": 1}, None, None),
+    ("get", {"book_name": "The Holy Bible", "book_author": "", "amount": 2}, None, None),
+    ("post", {"book_name": "The Little Prince", "book_author": "Antoine de Saint-Exupery", "amount": 3}, None, None),
+    ("get", None, {"content-type": "application/json"}, {"book_name": "The Little Prince", "book_author": "Antoine de Saint-Exupery", "amount": 2}),
+    ("post", None, {"content-type": "application/json"}, {"book_name": "The Little Prince", "book_author": "Antoine de Saint-Exupery", "amount": 6}),
+    ("post", {"book_name": "The Hunger Games", "book_author": "Suzanne Collins", "amount": 2}, {"content-type": "application/json"}, {"book_name": "The Little Prince", "book_author": "Antoine de Saint-Exupery", "amount": 2}),
+    ("get", {"book_name": "The Hunger Games", "book_author": "Suzanne Collins", "amount": 2}, {"content-type": "application/json"}, {"book_name": "The Little Prince", "book_author": "Antoine de Saint-Exupery", "amount": 2}),
+    ("get", {"book_name": "", "book_author": "Suzanne Collins", "amount": 0}, None, None),
+)
+
+"""
+Tuple of tests for adding users into db
+
+(method, map_of_parameters, headers, json)
+
+"""
+add_user_param = (
+    ("get", {"user_name": "Hillary Clinton"}, None, None),
+    ("post", {"user_name": "Mary Rubets"}, None, None),
+    ("get", {"user_name": "Monica Fush"}, {"content-type": "application/json"}, {"user_name": "Monica Tush"}),
+    ("post", {"user_name": "Lucy Fush"}, {"content-type": "application/json"}, {"user_name": "Lucy Tush"}),
+    ("get", None, {"content-type": "application/json"}, {"user_name": "Mandy Timures"}),
+    ("post", None, {"content-type": "application/json"}, {"user_name": "Hidy Timures"}),
+    ("get", {"user_name": ""}, None, None),
+    ("get", None, {"content-type": "application/json"}, {"user_name": ""}),
 )
