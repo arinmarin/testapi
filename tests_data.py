@@ -1,6 +1,7 @@
-
-
+"""Base url of API"""
 baseUrl = 'http://yoshilyosha.pythonanywhere.com/api/v1/'
+
+
 """
 Tuple of test`s parameters
 
@@ -16,6 +17,8 @@ param = (
     ("post", "user", "400_template.json", {}, None, None, 400),
     ("get", "user", "user_template.json", {"user_id": 2}, None, None, 200),
     ("post", "user", "user_template.json", {"user_id": 0}, None, None, 200),
+    ("post", "user", "400_template.json", {"user_id": -1}, None, None, 400),
+    ("get", "user", "400_template.json", {"user_id": -1}, None, None, 400),
     ("get", "user", "user_template.json", {"user_id": 0}, {"content-type": "application/json"}, {"user_id": 2}, 200),
     ("get", "book", "book_template.json", {"book_id": 0}, {"content-type": "application/json"}, {"book_id": 2}, 200),
     ("get", "user", "user_template.json", {}, {"content-type": "application/json"}, {"user_id": 2}, 200),
@@ -61,4 +64,19 @@ add_user_param = (
     ("post", None, {"content-type": "application/json"}, {"user_name": "Hidy Timures"}),
     ("get", {"user_name": ""}, None, None),
     ("get", None, {"content-type": "application/json"}, {"user_name": ""}),
+)
+
+"""
+Tuple of tests for taking book
+
+(method, is_need_param, is_need_json)
+
+"""
+take_book_param = (
+    ("get", True, False),
+    ("post", True, False),
+    ("get", False, True),
+    ("post", False, True),
+    ("get", True, True),
+    ("post", True, True),
 )
