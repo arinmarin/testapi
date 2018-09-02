@@ -1,0 +1,7 @@
+1 - book/add do not support POST
+2 - User take book with zero amount. Status == 200
+3 - User take book with zero amount
+4 - User took more than 3 books
+5 - User took identical books
+6 - user/take_book. Json is not works
+7 - user/take_book. Amount of book does not change

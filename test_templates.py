@@ -16,8 +16,8 @@ def is_validate(json_obj, schema):
 
 
 @pytest.mark.parametrize("method, url, template, map_of_argument, header, my_json, status", param)
-def test_template_valid(method, url, template, map_of_argument, header, my_json, status):
-    url = baseUrl + url
+def test_template_valid(method, url, template, map_of_argument, header, my_json, status, get_url):
+    url = get_url + url
     sys.stdout.write("Method = {}, Url = {}, Template = {}, Parameters = {}, Headers = {}, Json = {}, Status = {}\n"\
                      .format(method, url, template, map_of_argument, header, my_json, status))
     template = "templates/" + template
@@ -27,6 +27,7 @@ def test_template_valid(method, url, template, map_of_argument, header, my_json,
 
     request = requests.request(method, url, params=map_of_argument, headers=header, json=my_json)
     text = request.text
+    request.json()
     sys.stdout.write(text + '\n')
     assert request.status_code == status
 
