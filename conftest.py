@@ -4,6 +4,14 @@ from faker import Faker
 
 
 @pytest.fixture(scope="module")
+def clear_base(get_url):
+    """
+    Fixture clean base to 5 pointers
+    """
+    requests.get(get_url + "test/repopulate_db")
+
+
+@pytest.fixture(scope="module")
 def books(get_url):
     """Fixture returned a list of all books ids
     """

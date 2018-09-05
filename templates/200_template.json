@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "required": [
+    "body",
+    "status"
+  ],
+  "properties": {
+    "body": {
+      "type": "string",
+      "pattern": "^(.*)$"
+    },
+    "status": {
+      "enum": [
+        200
+      ]
+    }
+  }
+}

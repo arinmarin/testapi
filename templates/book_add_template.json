@@ -8,23 +8,28 @@
     "body": {
       "type": "object",
       "required": [
+        "amount",
+        "author",
         "id",
-        "name",
-        "taken_books_ids"
+        "name"
       ],
       "properties": {
+        "amount": {
+          "type": "integer"
+        },
+        "author": {
+          "type": "string",
+          "pattern": "^(.*)$"
+        },
         "id": {
           "type": "integer"
         },
         "name": {
           "type": "string",
-          "pattern": "^[A-Z][a-z/./-]* [A-Z][a-z/./-]*"
-        },
-        "taken_books_ids": {
-          "type": "array"
+          "pattern": "^(.*)$"
         }
       }
     },
-    "status": { "enum": [ 200 ] }
+   "status": { "enum": [ 200 ] }
   }
 }

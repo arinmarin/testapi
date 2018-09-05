@@ -27,22 +27,20 @@
               },
               "author": {
                 "type": "string",
-                "pattern": "^[A-Z][a-z/./-]* [A-Z][a-z/./-]*"
+                "pattern": "^(.*)$"
               },
               "id": {
                 "type": "integer"
               },
               "name": {
                 "type": "string",
-                "pattern": "^[A-Z1-9]"
+                "pattern": "^(.*)$"
               }
             }
           }
         }
       }
     },
-    "status": {
-      "type": "integer"
-    }
+    "status": { "enum": [ 200 ] }
   }
 }

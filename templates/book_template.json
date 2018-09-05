@@ -30,8 +30,6 @@
         }
       }
     },
-    "status": {
-      "type": "integer"
-    }
+    "status": { "enum": [ 200 ] }
   }
 }

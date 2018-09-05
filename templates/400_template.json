@@ -7,20 +7,13 @@
   "properties": {
     "body": {
       "type": "object",
-      "required": [
-        "additional_errors"
-      ],
       "properties": {
-        "additional_errors": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "user_id": {
+          "type": "string",
+          "pattern": "^(.*)$"
         }
       }
     },
-    "status": {
-      "type": "integer"
-    }
+    "status": { "enum": [ 400 ] }
   }
 }

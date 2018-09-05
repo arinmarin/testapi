@@ -5,3 +5,7 @@
 5 - User took identical books
 6 - user/take_book. Json is not works
 7 - user/take_book. Amount of book does not change
+8 - users do not support POST
+9 - user and json and "user_id" and not positive number
+10 - book and not positive number
+11 - user/add may add not only named words
